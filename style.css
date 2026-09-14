@@ -1,0 +1,279 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: #eef4f8;
+  color: #263238;
+  font-family: Arial, sans-serif;
+}
+
+.todo-container {
+  width: 100%;
+  max-width: 560px;
+  margin-top: 48px;
+  padding: 32px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(38, 50, 56, 0.12);
+}
+
+h1 {
+  margin: 0 0 24px;
+  color: #176b87;
+  text-align: center;
+}
+
+.task-form {
+  display: flex;
+  gap: 10px;
+}
+
+.task-form input {
+  min-width: 0;
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #b7c9d3;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.task-form input:focus {
+  outline: 2px solid #82c8dc;
+  border-color: #176b87;
+}
+
+.task-form input[type="date"] {
+  width: 44px;
+  flex: 0 0 44px;
+  padding: 10px 8px;
+  color: transparent;
+  cursor: pointer;
+}
+
+.task-form input[type="date"]::-webkit-datetime-edit,
+.task-form input[type="date"]::-webkit-datetime-edit-fields-wrapper,
+.edit-form input[type="date"]::-webkit-datetime-edit,
+.edit-form input[type="date"]::-webkit-datetime-edit-fields-wrapper {
+  display: none;
+}
+
+.task-form input[type="date"]::-webkit-calendar-picker-indicator,
+.edit-form input[type="date"]::-webkit-calendar-picker-indicator {
+  margin: 0;
+  cursor: pointer;
+  opacity: 1;
+}
+
+.deadline-label {
+  align-self: center;
+  color: #607d8b;
+  font-size: 0.9rem;
+}
+
+button {
+  border: 0;
+  border-radius: 6px;
+  padding: 12px 16px;
+  background: #176b87;
+  color: #ffffff;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #12566c;
+}
+
+.form-message {
+  min-height: 20px;
+  margin: 8px 0 0;
+  color: #b33a3a;
+  font-size: 0.9rem;
+}
+
+.empty-state {
+  margin: 24px 0 0;
+  color: #607d8b;
+  text-align: center;
+}
+
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 24px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid #d9e3e8;
+  border-radius: 6px;
+  background: #f8fbfc;
+}
+
+.task-item input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #176b87;
+}
+
+.task-text {
+  flex: 1;
+  overflow-wrap: anywhere;
+}
+
+.task-info {
+  min-width: 0;
+  flex: 1;
+}
+
+.deadline {
+  display: block;
+  margin-top: 4px;
+  color: #607d8b;
+  font-size: 0.85rem;
+}
+
+.task-item.completed .task-text {
+  color: #78909c;
+  text-decoration: line-through;
+}
+
+.delete-button {
+  padding: 8px 10px;
+  background: #c65353;
+  font-size: 0.9rem;
+}
+
+.delete-button:hover {
+  background: #a84040;
+}
+
+.edit-button {
+  padding: 8px 10px;
+  background: #607d8b;
+  font-size: 0.9rem;
+}
+
+.edit-button:hover {
+  background: #4d6570;
+}
+
+.task-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.task-item.editing {
+  align-items: stretch;
+}
+
+.edit-form {
+  display: flex;
+  width: 100%;
+  gap: 8px;
+}
+
+.edit-form input[type="text"] {
+  min-width: 0;
+  flex: 1;
+}
+
+.edit-form input[type="date"] {
+  width: 44px;
+  flex: 0 0 44px;
+  color: transparent;
+  cursor: pointer;
+}
+
+.edit-form input {
+  padding: 8px;
+  border: 1px solid #b7c9d3;
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+
+.edit-form input:focus {
+  outline: 2px solid #82c8dc;
+  border-color: #176b87;
+}
+
+.edit-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.cancel-button {
+  background: #90a4ae;
+}
+
+.cancel-button:hover {
+  background: #718791;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 12px;
+  }
+
+  .todo-container {
+    margin-top: 12px;
+    padding: 24px 18px;
+  }
+
+  .task-form {
+    flex-direction: column;
+  }
+
+  .deadline-label {
+    align-self: flex-start;
+  }
+
+  .task-form input[type="date"] {
+    flex: 0 0 44px;
+  }
+
+  .task-form button {
+    width: 100%;
+  }
+
+  .task-item:not(.editing) {
+    align-items: flex-start;
+  }
+
+  .task-actions {
+    flex-direction: column;
+  }
+
+  .edit-form {
+    flex-direction: column;
+  }
+
+  .edit-actions button {
+    flex: 1;
+  }
+}
